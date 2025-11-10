@@ -83,11 +83,11 @@ Elegí Semaphore para limitar el acceso a una plaza de aparcamiento porque permi
 
 Esto ofrece varias ventajas respecto a otras alternativas:
 
-### - synchronized:
+### synchronized:
 synchronized protege las secciones críticas, pero no permite contar los recursos limitados con la naturalidad de un semáforo, que para el caso del aparcamiento es muy útil porque se delega la gestión del límite de plazas al propio semáforo, sin tener que escribir la lógica para hacerlo.
 
-### - wait() / notify () :
+### wait() / notify () :
 wait() y notify() permiten coordinar hilos, pero requieren una mayor cantidad de código y tener más cuidado para manejar adecuadamente la condición de espera, que en Semaphore se evita, ya que automáticamente se notifica la entrada y salida de coches.
 
-### - ReentrantLock:
+### ReentrantLock:
 Un ReentrantLock tiene una similar protección a synchronized, pero en el caso de los permisos, no permite mantener un conteo integrado, mientras que Semaphore gestiona muy bien un número arbitrariamente grande de plazas y una vez más asegura que los coches entren en orden FIFO (justificando fair=true)
